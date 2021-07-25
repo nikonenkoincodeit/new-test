@@ -1,5 +1,4 @@
-"use strict";
-const words = ["кот", "программа", "собака", "автобус"];
+const words = ["кот", "собака", "автобус"];
 const word = words[Math.floor(Math.random() * words.length)];
 
 const ansverArray = [];
@@ -8,17 +7,19 @@ for (let i = 0; i < word.length; i++) {
   ansverArray[i] = "-";
 }
 
-console.log(typeof null);
-
 let remainingLetters = word.length;
+
+console.log(remainingLetters);
 
 while (remainingLetters > 0) {
   alert(ansverArray.join(" "));
-  const guess = prompt("Угадайте букву или нажмите отмена");
+  let guess = prompt("Угадайте букву!");
+  guess = guess.toLowerCase();
+  console.log(guess);
   if (guess === null) {
     break;
   } else if (guess.length > 1) {
-    alert("Пожалуйста введите только одну букву!");
+    alert("Пожалуйста введите одну букву!");
   } else {
     for (let i = 0; i < word.length; i++) {
       if (word[i] === guess) {
@@ -29,4 +30,4 @@ while (remainingLetters > 0) {
   }
 }
 
-alert("Oтлично было загадано слово " + word);
+alert("Было загаданно слово " + word);
